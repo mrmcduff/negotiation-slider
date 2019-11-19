@@ -70,6 +70,7 @@ function getMarksMinMax(mx: Mark[]): { min: number, max: number } {
 }
 
 export const TableStack: React.FC<TableStackProps> = props => {
+    const { setValue } = props;
     const styles = useStyles();
     const [selection, setSelection] = useState(1);
     const [marks, setMarks] = useState<Mark[]>([...DEFAULT_MARKS]);
@@ -84,7 +85,7 @@ export const TableStack: React.FC<TableStackProps> = props => {
     useEffect(() => {
         const outputVals = splitLabelList(textLabel);
         if (outputVals.length > 0) {
-            const updatedMarks = marks.map((mark, index) => ({ value: mark.value, label: outputVals[index] }));
+            const updatedMarks = [...marks].map((mark, index) => ({ value: mark.value, label: outputVals[index] }));
             setLabelError(false);
             setMarks(updatedMarks);
         } else {
@@ -94,7 +95,7 @@ export const TableStack: React.FC<TableStackProps> = props => {
     useEffect(() => {
         const outputVals = splitNumberList(textValues);
         if (outputVals.length > 0) {
-            const updatedMarks = marks.map((mark, index) => ({ value: outputVals[index], label: mark.label }));
+            const updatedMarks = [...marks].map((mark, index) => ({ value: outputVals[index], label: mark.label }));
             const minimax = getMarksMinMax(updatedMarks);
             setMin(minimax.min);
             setMax(minimax.max);
@@ -105,8 +106,8 @@ export const TableStack: React.FC<TableStackProps> = props => {
         }
     }, [textValues]);
     useEffect(() => {
-        props.setValue(selection);
-    }, [selection]);
+        setValue(selection);
+    }, [selection, setValue]);
     return (
         <div className={styles.stackStyle}>
             <FormSlider

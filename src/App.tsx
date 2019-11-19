@@ -56,7 +56,7 @@ const App: React.FC = () => {
     return (
         <div className={cx('App', styles.commonStyle)}>
             <Typography variant="h6">{`Your total Score: ${score}`}</Typography>
-            <Table>
+            <Table size="small">
                 <TableHead>
                     <TableRow>
                         <TableCell>Category</TableCell>

@@ -2,6 +2,7 @@
     "name": "negotiation-slider",
     "version": "0.1.0",
     "private": true,
+    "homepage": "https://mrmcduff.github.io/negotiation-slider/",
     "dependencies": {
         "@material-ui/core": "^4.6.1",
         "@types/classnames": "^2.2.9",
@@ -10,6 +11,7 @@
         "@types/react": "16.9.11",
         "@types/react-dom": "16.9.4",
         "classnames": "^2.2.6",
+        "gh-pages": "^2.1.1",
         "react": "^16.12.0",
         "react-dom": "^16.12.0",
         "react-scripts": "3.2.0",
@@ -19,7 +21,9 @@
         "start": "react-scripts start",
         "build": "react-scripts build",
         "test": "react-scripts test",
-        "eject": "react-scripts eject"
+        "eject": "react-scripts eject",
+        "predeploy": "yarn run build",
+        "deploy": "gh-pages -d build"
     },
     "eslintConfig": {
         "extends": "react-app"

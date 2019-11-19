@@ -74,7 +74,9 @@ export const TableStack: React.FC<TableStackProps> = props => {
     const [marks, setMarks] = useState<Mark[]>([...DEFAULT_MARKS]);
 
     const [textLabel, setTextLabel] = useState('');
+    const [labelError, setLabelError] = useState(false);
     const [textValues, setTextValues] = useState('');
+    const [valueError, setValueError] = useState(false);
     const [min, setMin] = useState<number>(DEFAULT_MARKS[0].value);
     const [max, setMax] = useState<number>(DEFAULT_MARKS[4].value);
 
@@ -82,7 +84,10 @@ export const TableStack: React.FC<TableStackProps> = props => {
         const outputVals = splitLabelList(textLabel);
         if (outputVals.length > 0) {
             const updatedMarks = marks.map((mark, index) => ({ value: mark.value, label: outputVals[index] }));
+            setLabelError(false);
             setMarks(updatedMarks);
+        } else {
+            setLabelError(true);
         }
     }, [textLabel]);
     useEffect(() => {
@@ -92,7 +97,10 @@ export const TableStack: React.FC<TableStackProps> = props => {
             const minimax = getMarksMinMax(updatedMarks);
             setMin(minimax.min);
             setMax(minimax.max);
+            setValueError(false);
             setMarks(updatedMarks);
+        } else {
+            setValueError(true);
         }
     }, [textValues]);
     useEffect(() => {
@@ -115,6 +123,7 @@ export const TableStack: React.FC<TableStackProps> = props => {
                     margin="none"
                     placeholder={'Labels'}
                     variant="outlined"
+                    error={labelError}
                     value={textLabel}
                     onChange={event => setTextLabel(event.target.value)}
                     spellCheck={false}
@@ -129,6 +138,7 @@ export const TableStack: React.FC<TableStackProps> = props => {
                     placeholder={'Values'}
                     variant="outlined"
                     value={textValues}
+                    error={valueError}
                     onChange={event => setTextValues(event.target.value)}
                     spellCheck={false}
                 />

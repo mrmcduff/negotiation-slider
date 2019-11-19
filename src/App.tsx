@@ -68,6 +68,7 @@ const App: React.FC = () => {
                     <TableCell>Bonus</TableCell>
                     <TableCell align="left">
                         <TableStack
+                            storageKey="bonus"
                             setValue={setBonus}
                         />
                     </TableCell>
@@ -77,6 +78,7 @@ const App: React.FC = () => {
                     <TableCell>Job Assignment</TableCell>
                     <TableCell align="left">
                         <TableStack
+                            storageKey="jobassignment"
                             setValue={setJobAssignment}
                         />
                     </TableCell>
@@ -86,6 +88,7 @@ const App: React.FC = () => {
                     <TableCell>Vacation Time</TableCell>
                     <TableCell align="left">
                         <TableStack
+                            storageKey="vacation"
                             setValue={setVaca}
                         />
                     </TableCell>
@@ -95,6 +98,7 @@ const App: React.FC = () => {
                     <TableCell>Starting Date</TableCell>
                     <TableCell align="left">
                         <TableStack
+                            storageKey="startdate"
                             setValue={setStartDate}
                         />
                     </TableCell>
@@ -104,6 +108,7 @@ const App: React.FC = () => {
                     <TableCell>Moving Cvg</TableCell>
                     <TableCell align="left">
                         <TableStack
+                            storageKey="movingcoverage"
                             setValue={setMeCov}
                         />
                     </TableCell>
@@ -113,6 +118,7 @@ const App: React.FC = () => {
                     <TableCell>Insurance Covg</TableCell>
                     <TableCell align="left">
                         <TableStack
+                            storageKey="insurancecoverage"
                             setValue={setInCov}
                         />
                     </TableCell>
@@ -122,6 +128,7 @@ const App: React.FC = () => {
                     <TableCell>Salary</TableCell>
                     <TableCell align="left">
                         <TableStack
+                            storageKey="salary"
                             setValue={setSalary}
                         />
                     </TableCell>
@@ -131,6 +138,7 @@ const App: React.FC = () => {
                     <TableCell>Location</TableCell>
                     <TableCell align="left">
                         <TableStack
+                            storageKey="citylocation"
                             setValue={setLocation}
                         />
                     </TableCell>

@@ -32,6 +32,7 @@ const useStyles = makeStyles(theme => ({
 }));
 
 interface TableStackProps {
+    storageKey: string;
     setValue: React.Dispatch<React.SetStateAction<number>>;
 }
 
@@ -70,14 +71,14 @@ function getMarksMinMax(mx: Mark[]): { min: number, max: number } {
 }
 
 export const TableStack: React.FC<TableStackProps> = props => {
-    const { setValue } = props;
+    const { storageKey, setValue } = props;
     const styles = useStyles();
     const [selection, setSelection] = useState(1);
     const [marks, setMarks] = useState<Mark[]>([...DEFAULT_MARKS]);
 
-    const [textLabel, setTextLabel] = useState('');
+    const [textLabel, setTextLabel] = useState<string>(localStorage.getItem(`${storageKey}-labels`) || '');
     const [labelError, setLabelError] = useState(false);
-    const [textValues, setTextValues] = useState('');
+    const [textValues, setTextValues] = useState<string>(localStorage.getItem(`${storageKey}-values`) || '');
     const [valueError, setValueError] = useState(false);
     const [min, setMin] = useState<number>(DEFAULT_MARKS[0].value);
     const [max, setMax] = useState<number>(DEFAULT_MARKS[4].value);
@@ -86,6 +87,7 @@ export const TableStack: React.FC<TableStackProps> = props => {
         const outputVals = splitLabelList(textLabel);
         if (outputVals.length > 0) {
             const updatedMarks = [...marks].map((mark, index) => ({ value: mark.value, label: outputVals[index] }));
+            localStorage.setItem(`${storageKey}-labels`, textLabel);
             setLabelError(false);
             setMarks(updatedMarks);
         } else {
@@ -95,6 +97,7 @@ export const TableStack: React.FC<TableStackProps> = props => {
     useEffect(() => {
         const outputVals = splitNumberList(textValues);
         if (outputVals.length > 0) {
+            localStorage.setItem(`${storageKey}-values`, textValues);
             const updatedMarks = [...marks].map((mark, index) => ({ value: outputVals[index], label: mark.label }));
             const minimax = getMarksMinMax(updatedMarks);
             setMin(minimax.min);

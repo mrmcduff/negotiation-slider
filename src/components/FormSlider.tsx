@@ -53,7 +53,7 @@ export const FormSlider: React.FC<FormSliderProps> = props => {
                 className={styles.sliderStyle}
                 defaultValue={min}
                 aria-labelledby="discrete-slider-custom"
-                step={1}
+                step={null}
                 valueLabelDisplay="auto"
                 min={min}
                 max={max}

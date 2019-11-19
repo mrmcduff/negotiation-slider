@@ -14,7 +14,7 @@
 importScripts("https://storage.googleapis.com/workbox-cdn/releases/4.3.1/workbox-sw.js");
 
 importScripts(
-  "/negotiation-slider/precache-manifest.25006ac08ff0c228b3a11a64e0261baf.js"
+  "/negotiation-slider/precache-manifest.9e66b37860af02cd25fc4a7486fa0761.js"
 );
 
 self.addEventListener('message', (event) => {

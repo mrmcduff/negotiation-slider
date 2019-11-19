@@ -1,26 +1,144 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import logo from './logo.svg';
 import './App.css';
+import { makeStyles } from '@material-ui/core/styles';
+import cx from 'classnames';
+import Table from '@material-ui/core/Table';
+import TableBody from '@material-ui/core/TableBody';
+import TableCell from '@material-ui/core/TableCell';
+import TableHead from '@material-ui/core/TableHead';
+import TableRow from '@material-ui/core/TableRow';
+import { FormRowItem, FormSlider, TableStack } from './components';
+import { Typography } from '@material-ui/core';
+
+const useStyles = makeStyles(theme => ({
+    commonStyle: {
+        padding: 48,
+    },
+}));
+
+const marksOne = [
+    {
+        value: 1,
+        label: 'one'
+    },
+    {
+        value: 2,
+        label: 'two'
+    }, {
+        value: 3,
+        label: 'three'
+    }, {
+        value: 4,
+        label: 'four'
+    }, {
+        value: 5,
+        label: 'five'
+    },
+];
+
 
 const App: React.FC = () => {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+    const styles = useStyles();
+    const [bonus, setBonus] = useState(0);
+    const [jobAssignment, setJobAssignment] = useState(0);
+    const [vaca, setVaca] = useState(0);
+    const [startDate, setStartDate] = useState(0);
+    const [meCov, setMeCov] = useState(0);
+    const [inCov, setInCov] = useState(0);
+    const [salary, setSalary] = useState(0);
+    const [location, setLocation] = useState(0);
+
+    const [score, setScore] = useState(0);
+    useEffect(() => {
+        setScore(bonus + jobAssignment + vaca + startDate + meCov + inCov + salary + location);
+    }, [bonus, jobAssignment, vaca, startDate, meCov, inCov, salary, location]);
+    return (
+        <div className={cx('App', styles.commonStyle)}>
+            <Typography variant="h6">{`Total Score: ${score}`}</Typography>
+            <Table>
+                <TableHead>
+                    <TableRow>
+                        <TableCell>Category</TableCell>
+                        <TableCell align="left">Selection</TableCell>
+                        <TableCell align="right">Value</TableCell>
+                    </TableRow>
+                </TableHead>
+                <TableRow>
+                    <TableCell>Bonus</TableCell>
+                    <TableCell align="left">
+                        <TableStack
+                            setValue={setBonus}
+                        />
+                    </TableCell>
+                    <TableCell align="right">{bonus}</TableCell>
+                </TableRow>
+                <TableRow>
+                    <TableCell>Job Assignment</TableCell>
+                    <TableCell align="left">
+                        <TableStack
+                            setValue={setJobAssignment}
+                        />
+                    </TableCell>
+                    <TableCell align="right">{jobAssignment}</TableCell>
+                </TableRow>
+                <TableRow>
+                    <TableCell>Vacation Time</TableCell>
+                    <TableCell align="left">
+                        <TableStack
+                            setValue={setVaca}
+                        />
+                    </TableCell>
+                    <TableCell align="right">{vaca}</TableCell>
+                </TableRow>
+                <TableRow>
+                    <TableCell>Starting Date</TableCell>
+                    <TableCell align="left">
+                        <TableStack
+                            setValue={setStartDate}
+                        />
+                    </TableCell>
+                    <TableCell align="right">{startDate}</TableCell>
+                </TableRow>
+                <TableRow>
+                    <TableCell>Moving Cvg</TableCell>
+                    <TableCell align="left">
+                        <TableStack
+                            setValue={setMeCov}
+                        />
+                    </TableCell>
+                    <TableCell align="right">{meCov}</TableCell>
+                </TableRow>
+                <TableRow>
+                    <TableCell>Insurance Covg</TableCell>
+                    <TableCell align="left">
+                        <TableStack
+                            setValue={setInCov}
+                        />
+                    </TableCell>
+                    <TableCell align="right">{inCov}</TableCell>
+                </TableRow>
+                <TableRow>
+                    <TableCell>Salary</TableCell>
+                    <TableCell align="left">
+                        <TableStack
+                            setValue={setSalary}
+                        />
+                    </TableCell>
+                    <TableCell align="right">{salary}</TableCell>
+                </TableRow>
+                <TableRow>
+                    <TableCell>Location</TableCell>
+                    <TableCell align="left">
+                        <TableStack
+                            setValue={setLocation}
+                        />
+                    </TableCell>
+                    <TableCell align="right">{location}</TableCell>
+                </TableRow>
+            </Table>
+        </div>
+    );
 }
 
 export default App;

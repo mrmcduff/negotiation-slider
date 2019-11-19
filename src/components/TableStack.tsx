@@ -18,6 +18,8 @@ const useStyles = makeStyles(theme => ({
     entryStyle: {
         width: 384,
         minWidth: 384,
+        marginLeft: 12,
+        marginRight: 12,
     },
     extendedStyle: {
         width: 760,

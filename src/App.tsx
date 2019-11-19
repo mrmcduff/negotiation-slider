@@ -55,7 +55,7 @@ const App: React.FC = () => {
     }, [bonus, jobAssignment, vaca, startDate, meCov, inCov, salary, location]);
     return (
         <div className={cx('App', styles.commonStyle)}>
-            <Typography variant="h6">{`Total Score: ${score}`}</Typography>
+            <Typography variant="h6">{`Your total Score: ${score}`}</Typography>
             <Table>
                 <TableHead>
                     <TableRow>

@@ -14,11 +14,10 @@ const useStyles = makeStyles(theme => ({
     rowStyle: {
         display: 'flex',
         flexDirection: 'row',
-        justifyContent: 'space-between'
     },
     entryStyle: {
-        width: 256,
-        flexGrow: 1,
+        width: 384,
+        minWidth: 384,
     },
     extendedStyle: {
         width: 760,

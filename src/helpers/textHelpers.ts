@@ -8,7 +8,7 @@ export function splitNumberList(userEntry: string): number[] {
         return [];
     }
     const unsanitizedSplit = userSplit.map(entry => parseInt(entry));
-    const sanitizedSplit = unsanitizedSplit.filter(val => val);
+    const sanitizedSplit = unsanitizedSplit.filter(val => val !== undefined);
     if (sanitizedSplit.length === MAGIC_LENGTH) {
         return sanitizedSplit;
     }

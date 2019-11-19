@@ -18,14 +18,13 @@ const useStyles = makeStyles(theme => ({
     },
     entryStyle: {
         width: 256,
-
+        flexGrow: 1,
     },
     extendedStyle: {
         width: 760,
         verticalAlign: 'center',
     },
     sliderStyle: {
-        width: 384,
         minWidth: 384,
     }
 }));

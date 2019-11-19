@@ -14,6 +14,7 @@ const useStyles = makeStyles(theme => ({
     rowStyle: {
         display: 'flex',
         flexDirection: 'row',
+        alignItems: 'baseline'
     },
     entryStyle: {
         width: 384,
@@ -122,7 +123,7 @@ export const TableStack: React.FC<TableStackProps> = props => {
                     rows={1}
                     margin="none"
                     placeholder={'Labels'}
-                    variant="outlined"
+                    variant="standard"
                     error={labelError}
                     value={textLabel}
                     onChange={event => setTextLabel(event.target.value)}
@@ -130,13 +131,13 @@ export const TableStack: React.FC<TableStackProps> = props => {
                 />
             </div>
             <div className={styles.rowStyle}>
-                <Typography variant="body2">{'Values'}</Typography>
+                <Typography variant="body2">{'Scores'}</Typography>
                 <TextField
                     className={styles.entryStyle}
                     rows={1}
                     margin="none"
-                    placeholder={'Values'}
-                    variant="outlined"
+                    placeholder={'Scores'}
+                    variant="standard"
                     value={textValues}
                     error={valueError}
                     onChange={event => setTextValues(event.target.value)}

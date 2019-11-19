@@ -61,7 +61,7 @@ const App: React.FC = () => {
                     <TableRow>
                         <TableCell>Category</TableCell>
                         <TableCell align="left">Selection</TableCell>
-                        <TableCell align="right">Value</TableCell>
+                        <TableCell align="left">Score</TableCell>
                     </TableRow>
                 </TableHead>
                 <TableRow>
@@ -71,7 +71,7 @@ const App: React.FC = () => {
                             setValue={setBonus}
                         />
                     </TableCell>
-                    <TableCell align="right">{bonus}</TableCell>
+                    <TableCell align="left">{bonus}</TableCell>
                 </TableRow>
                 <TableRow>
                     <TableCell>Job Assignment</TableCell>
@@ -80,7 +80,7 @@ const App: React.FC = () => {
                             setValue={setJobAssignment}
                         />
                     </TableCell>
-                    <TableCell align="right">{jobAssignment}</TableCell>
+                    <TableCell align="left">{jobAssignment}</TableCell>
                 </TableRow>
                 <TableRow>
                     <TableCell>Vacation Time</TableCell>
@@ -89,7 +89,7 @@ const App: React.FC = () => {
                             setValue={setVaca}
                         />
                     </TableCell>
-                    <TableCell align="right">{vaca}</TableCell>
+                    <TableCell align="left">{vaca}</TableCell>
                 </TableRow>
                 <TableRow>
                     <TableCell>Starting Date</TableCell>
@@ -98,7 +98,7 @@ const App: React.FC = () => {
                             setValue={setStartDate}
                         />
                     </TableCell>
-                    <TableCell align="right">{startDate}</TableCell>
+                    <TableCell align="left">{startDate}</TableCell>
                 </TableRow>
                 <TableRow>
                     <TableCell>Moving Cvg</TableCell>
@@ -107,7 +107,7 @@ const App: React.FC = () => {
                             setValue={setMeCov}
                         />
                     </TableCell>
-                    <TableCell align="right">{meCov}</TableCell>
+                    <TableCell align="left">{meCov}</TableCell>
                 </TableRow>
                 <TableRow>
                     <TableCell>Insurance Covg</TableCell>
@@ -116,7 +116,7 @@ const App: React.FC = () => {
                             setValue={setInCov}
                         />
                     </TableCell>
-                    <TableCell align="right">{inCov}</TableCell>
+                    <TableCell align="left">{inCov}</TableCell>
                 </TableRow>
                 <TableRow>
                     <TableCell>Salary</TableCell>
@@ -125,7 +125,7 @@ const App: React.FC = () => {
                             setValue={setSalary}
                         />
                     </TableCell>
-                    <TableCell align="right">{salary}</TableCell>
+                    <TableCell align="left">{salary}</TableCell>
                 </TableRow>
                 <TableRow>
                     <TableCell>Location</TableCell>
@@ -134,7 +134,7 @@ const App: React.FC = () => {
                             setValue={setLocation}
                         />
                     </TableCell>
-                    <TableCell align="right">{location}</TableCell>
+                    <TableCell align="left">{location}</TableCell>
                 </TableRow>
             </Table>
         </div>
